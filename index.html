@@ -538,7 +538,11 @@
     const activate = () => {
       panels.forEach(x => x.classList.toggle("active", x === panel));
     };
-    panel.addEventListener("mouseenter", activate);
+    // hover-expand only for a real mouse — touch taps emulate mouseenter and
+    // would auto-activate, making the first tap navigate instead of expand
+    panel.addEventListener("pointerenter", e => {
+      if (e.pointerType === "mouse") activate();
+    });
     panel.addEventListener("click", e => {
       // first tap expands; tap on the expanded panel opens Instagram
       if (!panel.classList.contains("active")) { e.preventDefault(); activate(); }
