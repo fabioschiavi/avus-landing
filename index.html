@@ -87,6 +87,11 @@
   h1 .l{display:inline-block;font-variation-settings:'wdth' var(--wdth),'wght' 680}
   h1 em{font-style:normal}
   h1 em .l{background:linear-gradient(120deg,var(--lime-a),var(--lime-b));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .handle{
+    font-size:13px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--mist);margin-bottom:14px;display:flex;align-items:center;gap:12px;
+  }
+  .handle::before{content:"";width:30px;height:1px;background:linear-gradient(90deg,var(--lime-a),var(--lime-b))}
   .sub{margin-top:14px;font-size:15px;font-weight:300;line-height:1.65;color:var(--mist)}
   .sub b{color:var(--white);font-weight:500}
   .sub .en{color:var(--white);font-weight:400}
@@ -106,6 +111,13 @@
   .btn.ghost{color:var(--white)}
   .btn.ghost:hover{transform:scale(1.03);border-color:rgba(198,217,46,.45)}
   .btn svg{width:17px;height:17px;flex:0 0 auto}
+
+  /* PT label swaps to EN on hover */
+  .swap{display:grid;place-items:center}
+  .swap .pt, .swap .en2{grid-area:1/1;transition:opacity .25s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1);white-space:nowrap}
+  .swap .en2{opacity:0;transform:translateY(8px)}
+  .btn:hover .swap .pt{opacity:0;transform:translateY(-8px)}
+  .btn:hover .swap .en2{opacity:1;transform:translateY(0)}
 
   /* ── CAROUSEL STRIP ── */
   #strip{width:100%;max-width:1100px;display:flex;flex-direction:column;gap:10px}
@@ -173,7 +185,8 @@
   </header>
 
   <main>
-    <h1 data-fx>Potência não<br>precisa <em>gritar</em>.</h1>
+    <div class="handle">@avus.motorsports</div>
+    <h1 data-fx>Se <em>reprograme</em>!</h1>
     <p class="sub">
       <b>Remap ECU · TCU</b> &nbsp;·&nbsp; <b>Dinamômetro</b> &nbsp;·&nbsp; <b>Escapamento Inox · Titanium</b><br>
       <span class="en">Custom ECU | TCU for BMW — worldwide.</span>
@@ -182,10 +195,11 @@
     <div class="actions">
       <a class="btn solid" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Ol%C3%A1%20Equipe%20Avus!%20Vim%20pelo%20site." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3.2-.5s0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7a11 11 0 0 0 4.2 3.7c.6.3 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3Z"/></svg>
-        Agendar pelo WhatsApp
+        <span class="swap"><span class="pt">Agendar pelo WhatsApp</span><span class="en2">Book via WhatsApp</span></span>
       </a>
       <a class="btn ghost lg" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Hello%20Avus!%20I%27m%20interested%20in%20custom%20ECU%20%7C%20TCU." target="_blank" rel="noopener">Contact Us</a>
-      <a class="btn ghost lg" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x935ef16d620a5019:0xaf36d36097f5ffd1?source=g.page.share" target="_blank" rel="noopener">Visite a loja</a>
+      <a class="btn ghost lg" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x935ef16d620a5019:0xaf36d36097f5ffd1?source=g.page.share" target="_blank" rel="noopener"><span class="swap"><span class="pt">Visite a loja</span><span class="en2">Visit the shop</span></span></a>
+      <a class="btn ghost lg" href="https://avusmotorsports.com.br/" target="_blank" rel="noopener"><span class="swap"><span class="pt">Nosso site</span><span class="en2">Our website</span></span></a>
       <a class="btn ghost lg" href="https://www.instagram.com/avus.motorsports/" target="_blank" rel="noopener">Instagram</a>
     </div>
   </main>
@@ -213,6 +227,13 @@
 <script>
 (() => {
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* mobile autoplay guarantee: muted+playsinline already autoplays on
+     iOS/Android; this nudges play() again in case low-power mode blocked it */
+  const bgv = document.querySelector("#bg video");
+  const nudge = () => { bgv.play().catch(() => {}); };
+  addEventListener("load", nudge);
+  addEventListener("touchstart", nudge, { once: true, passive: true });
 
   /* variable font proximity on the headline */
   const REACH = 240, FROM_W = 680, TO_W = 900, WDTH = 78;
