@@ -160,6 +160,7 @@
   }
   #carousel .panel{
     position:relative;cursor:pointer;overflow:hidden;
+    display:block;text-decoration:none;
     border-radius:24px;
     width:4.6rem;height:21rem;
     flex:0 0 auto;
@@ -317,13 +318,13 @@
         <div class="kicker">Projetos recentes</div>
         <h2 data-fx>Feito na <em>Avus</em>.</h2>
         <div id="carousel">
-          <div class="panel active"><img src="insta/post_1.webp" alt="Projeto Avus"><div class="shade"></div><span class="tag lg">@avus.motorsports</span></div>
-          <div class="panel"><img src="insta/post_2.webp" alt="Projeto Avus"><div class="shade"></div><span class="tag lg">Remap Stage 2</span></div>
-          <div class="panel"><img src="insta/post_3.webp" alt="Projeto Avus"><div class="shade"></div><span class="tag lg">Zero Velocity</span></div>
-          <div class="panel"><img src="insta/post_4.webp" alt="Projeto Avus"><div class="shade"></div><span class="tag lg">Dyno Day</span></div>
-          <div class="panel"><img src="insta/post_5.webp" alt="Projeto Avus"><div class="shade"></div><span class="tag lg">M3 G80</span></div>
-          <div class="panel"><img src="insta/post_6.webp" alt="Projeto Avus"><div class="shade"></div><span class="tag lg">Rodas M</span></div>
-          <div class="panel"><img src="insta/post_7.webp" alt="Projeto Avus"><div class="shade"></div><span class="tag lg">Perfil</span></div>
+          <a class="panel active" href="https://www.instagram.com/avus.motorsports/" target="_blank" rel="noopener"><img src="insta/post_1.webp" alt="M3 G80 Dravit Grey"><div class="shade"></div><span class="tag lg">M3 G80 · Dravit Grey</span></a>
+          <a class="panel" href="https://www.instagram.com/avus.motorsports/" target="_blank" rel="noopener"><img src="insta/post_2.webp" alt="BMW 320i G20 Stage 2"><div class="shade"></div><span class="tag lg">320i G20 · Stage 2</span></a>
+          <a class="panel" href="https://www.instagram.com/avus.motorsports/" target="_blank" rel="noopener"><img src="insta/post_3.webp" alt="Ferrari Purosangue V12"><div class="shade"></div><span class="tag lg">Purosangue V12</span></a>
+          <a class="panel" href="https://www.instagram.com/avus.motorsports/" target="_blank" rel="noopener"><img src="insta/post_4.webp" alt="8 anos de Avus"><div class="shade"></div><span class="tag lg">8 anos de Avus</span></a>
+          <a class="panel" href="https://www.instagram.com/avus.motorsports/" target="_blank" rel="noopener"><img src="insta/post_5.webp" alt="RAM 1500 Classic"><div class="shade"></div><span class="tag lg">RAM 1500</span></a>
+          <a class="panel" href="https://www.instagram.com/avus.motorsports/" target="_blank" rel="noopener"><img src="insta/post_6.webp" alt="Ford F150 Stage 1"><div class="shade"></div><span class="tag lg">F150 · Stage 1</span></a>
+          <a class="panel" href="https://www.instagram.com/avus.motorsports/" target="_blank" rel="noopener"><img src="insta/post_7.webp" alt="Bastidores Avus"><div class="shade"></div><span class="tag lg">Bastidores</span></a>
         </div>
         <a class="ig-link" href="https://www.instagram.com/avus.motorsports/" target="_blank" rel="noopener">Ver todos no Instagram →</a>
       </div>
@@ -538,7 +539,10 @@
       panels.forEach(x => x.classList.toggle("active", x === panel));
     };
     panel.addEventListener("mouseenter", activate);
-    panel.addEventListener("click", activate);
+    panel.addEventListener("click", e => {
+      // first tap expands; tap on the expanded panel opens Instagram
+      if (!panel.classList.contains("active")) { e.preventDefault(); activate(); }
+    });
   });
 
   /* first paint */
