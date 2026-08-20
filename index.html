@@ -86,6 +86,7 @@
   }
   h1 .l{display:inline-block;font-variation-settings:'wdth' var(--wdth),'wght' 680}
   h1 em{font-style:normal}
+  h1 .nw{white-space:nowrap}
   h1 em .l{background:linear-gradient(120deg,var(--lime-a),var(--lime-b));-webkit-background-clip:text;background-clip:text;color:transparent}
   .handle{
     font-size:13px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;
@@ -153,7 +154,7 @@
 
   @media(max-width:768px){
     main{justify-content:flex-start;padding-top:9dvh}
-    h1{font-size:clamp(40px,11.5vw,64px)}
+    h1{font-size:clamp(30px,9.6vw,52px)}
     .sub{font-size:13.5px}
     .actions{margin-top:24px;gap:10px}
     .btn{padding:16px 14px;font-size:13px}
@@ -186,7 +187,7 @@
 
   <main>
     <div class="handle">@avus.motorsports</div>
-    <h1 data-fx>Se <em>reprograme</em>!</h1>
+    <h1 data-fx>Se <span class="nw"><em>reprograme</em>!</span></h1>
     <p class="sub">
       <b>Remap ECU · TCU</b> &nbsp;·&nbsp; <b>Dinamômetro</b> &nbsp;·&nbsp; <b>Escapamento Inox · Titanium</b><br>
       <span class="en">Custom ECU | TCU for BMW — worldwide.</span>
