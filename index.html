@@ -134,8 +134,11 @@
   .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
   .chip{
     font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
-    padding:10px 18px;border-radius:100px;color:var(--white);
+    padding:11px 18px;border-radius:100px;color:var(--white);
+    text-decoration:none;cursor:pointer;
+    transition:transform .2s cubic-bezier(.16,1,.3,1),border-color .2s;
   }
+  .chip:hover{transform:scale(1.05);border-color:rgba(198,217,46,.45)}
   .chip b{color:var(--lime-a);font-weight:600}
 
   #beat-1 .inner{margin-top:-6vh}
@@ -193,8 +196,8 @@
   #beat-5 .inner{max-width:780px}
   #beat-5 p.lead{margin:18px auto 0}
   .cta-row{margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-  .beat .cta-row, .beat #carousel, .beat .ig-link{pointer-events:none}
-  .beat.on .cta-row, .beat.on #carousel, .beat.on .ig-link{pointer-events:auto}
+  .beat .cta-row, .beat #carousel, .beat .ig-link, .beat .chips{pointer-events:none}
+  .beat.on .cta-row, .beat.on #carousel, .beat.on .ig-link, .beat.on .chips{pointer-events:auto}
   .btn{
     font-family:'Inter';font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
     text-decoration:none;padding:17px 36px;border-radius:100px;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s;cursor:pointer;
@@ -246,7 +249,7 @@
   <a class="item" data-goto="2">Dyno</a>
   <a class="item" data-goto="3">Escapamento</a>
   <a class="item" data-goto="4">Posts</a>
-  <a class="cta" data-goto="5">Agendar</a>
+  <a class="cta" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Ol%C3%A1%20Equipe%20Avus!%20Vim%20pelo%20site." target="_blank" rel="noopener">WhatsApp</a>
 </nav>
 
 <div id="scrub">
@@ -258,7 +261,7 @@
       <div class="inner lg">
         <div class="kicker">Avus Motorsports · Goiânia</div>
         <h2 data-fx>Potência não<br>precisa <em>gritar</em>.</h2>
-        <p class="lead">Engenharia de performance para quem entende que controle vale mais que barulho.</p>
+        <p class="lead">Remap, escapamento e manutenção em Goiânia.<br>Custom ECU | TCU for BMW — worldwide.</p>
       </div>
     </div>
 
@@ -267,12 +270,11 @@
       <div class="inner lg">
         <div class="kicker">01 · Remap ECU &amp; TCU</div>
         <h2 data-fx>Precisão em<br>cada <em>parâmetro</em>.</h2>
-        <p class="lead">Reprogramação desenvolvida e validada no seu carro — não um mapa genérico. Desbloqueio feito na loja, sem enviar a central pra fora.</p>
+        <p class="lead">Mapa feito no seu carro, aqui na loja. Nada genérico.</p>
         <div class="chips">
-          <span class="chip lg">Stage <b>1 · 2 · 3</b></span>
-          <span class="chip lg">Seletor de mapas</span>
-          <span class="chip lg">Launch control</span>
-          <span class="chip lg">Pops &amp; bangs</span>
+          <a class="chip lg" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Quero%20um%20remap%20Stage%20no%20meu%20carro." target="_blank" rel="noopener">Stage <b>1 · 2 · 3</b></a>
+          <a class="chip lg" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Quero%20saber%20mais%20sobre%20seletor%20de%20mapas." target="_blank" rel="noopener">Seletor de mapas</a>
+          <a class="chip lg" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Quero%20launch%20control%20no%20meu%20carro." target="_blank" rel="noopener">Launch control</a>
         </div>
       </div>
     </div>
@@ -282,11 +284,10 @@
       <div class="inner lg">
         <div class="kicker">02 · Dinamômetro</div>
         <h2 data-fx>Números não<br>correm. <em>Comprovam</em>.</h2>
-        <p class="lead">Medição antes e depois, com você acompanhando. Potência entregue em gráfico — não em promessa.</p>
+        <p class="lead">Você vê o antes e o depois. No gráfico.</p>
         <div class="chips">
-          <span class="chip lg">Até <b>+140 whp</b></span>
-          <span class="chip lg">Gráfico antes/depois</span>
-          <span class="chip lg">Validação real</span>
+          <a class="chip lg" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Quero%20medir%20meu%20carro%20no%20dinam%C3%B4metro." target="_blank" rel="noopener">Agendar dyno</a>
+          <a class="chip lg" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Quero%20ver%20um%20gr%C3%A1fico%20antes%2Fdepois." target="_blank" rel="noopener">Até <b>+140 whp</b></a>
         </div>
       </div>
     </div>
@@ -296,11 +297,11 @@
       <div class="inner lg">
         <div class="kicker">03 · Escapamento Inox &amp; Titanium</div>
         <h2 data-fx>O som é o rastro<br>da <em>engenharia</em>.</h2>
-        <p class="lead">Sistemas artesanais sob medida, projetados para fluxo, peso e assinatura sonora. Solda TIG, acabamento de exposição.</p>
+        <p class="lead">Inox ou titânio, feito à mão na loja. Solda TIG.</p>
         <div class="chips">
-          <span class="chip lg">Inox <b>304</b></span>
-          <span class="chip lg">Titanium</span>
-          <span class="chip lg">Downpipe · Catback</span>
+          <a class="chip lg" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Quero%20um%20escapamento%20inox%20sob%20medida." target="_blank" rel="noopener">Inox <b>304</b></a>
+          <a class="chip lg" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Quero%20um%20escapamento%20de%20tit%C3%A2nio." target="_blank" rel="noopener">Titanium</a>
+          <a class="chip lg" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Quero%20um%20downpipe%20ou%20catback." target="_blank" rel="noopener">Downpipe · Catback</a>
         </div>
       </div>
     </div>
@@ -328,12 +329,13 @@
       <div class="inner lg">
         <div class="kicker">Descubra o verdadeiro potencial</div>
         <h2 data-fx>Se <em>reprograme</em>.</h2>
-        <p class="lead">Avaliação técnica do seu carro, plano de potência e entrega medida em dinamômetro.</p>
+        <p class="lead">Chama no WhatsApp. A gente responde.</p>
         <div class="cta-row">
-          <a class="btn solid" href="https://linktr.ee/avusmotorsports" target="_blank" rel="noopener">Agendar avaliação</a>
-          <a class="btn ghost lg" href="https://www.instagram.com/avus.motorsports/" target="_blank" rel="noopener">@avus.motorsports</a>
+          <a class="btn solid" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Ol%C3%A1%20Equipe%20Avus!%20Vim%20pelo%20site." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+          <a class="btn ghost lg" href="https://api.whatsapp.com/send?phone=556236229489&amp;text=Hello%20Avus!%20I%27m%20interested%20in%20custom%20ECU%20%7C%20TCU." target="_blank" rel="noopener">Contact Us</a>
+          <a class="btn ghost lg" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x935ef16d620a5019:0xaf36d36097f5ffd1?source=g.page.share" target="_blank" rel="noopener">Visite a loja</a>
         </div>
-        <div class="foot">Av. 85 · Setor Marista · Goiânia — GO &nbsp;·&nbsp; <a href="https://linktr.ee/avusmotorsports" target="_blank" rel="noopener">linktr.ee/avusmotorsports</a></div>
+        <div class="foot">Av. 85 · Setor Marista · Goiânia — GO &nbsp;·&nbsp; <a href="https://avusmotorsports.com.br/" target="_blank" rel="noopener">avusmotorsports.com.br</a> &nbsp;·&nbsp; <a href="https://www.instagram.com/avus.motorsports/" target="_blank" rel="noopener">@avus.motorsports</a></div>
       </div>
     </div>
 
